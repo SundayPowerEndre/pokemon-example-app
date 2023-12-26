@@ -3,9 +3,12 @@ import { rootRoute } from ".";
 import {
   getAllPokemonOptions,
   getPokemonByNameOptions,
+  getPokemonMoveByNameOptions,
 } from "@/hooks/usePokemon";
 import ListPokemon from "@/pages/ListPokemons";
-import Pokemon from "@/pages/Pokemon";
+import PokemonPage from "@/pages/Pokemon";
+import MoveDialog from "@/pages/Pokemon/Dialogs/MoveDialog";
+import PokemonLoader from "@/components/Loader";
 
 const indexRoute = new Route({
   getParentRoute: () => rootRoute,
@@ -26,7 +29,23 @@ export const pokemonRoute = new Route({
   path: "/pokemon/$name",
   loader: ({ context: { queryClient }, params }) =>
     queryClient.ensureQueryData(getPokemonByNameOptions(params.name)),
-  component: Pokemon,
+  component: PokemonPage,
 });
 
-export const mainRouteTree = [indexRoute, listPokemonsRoute, pokemonRoute];
+export const pokemoneMoveDialogRoute = new Route({
+  getParentRoute: () => pokemonRoute,
+  path: "/$move",
+  loader: ({ context: { queryClient }, params }) =>
+    queryClient.ensureQueryData(getPokemonMoveByNameOptions(params.move)),
+  component: MoveDialog,
+  pendingComponent: () => {
+    return <PokemonLoader showInDialog={true} />;
+  },
+});
+
+export const mainRouteTree = [
+  indexRoute,
+  listPokemonsRoute,
+  pokemonRoute,
+  pokemoneMoveDialogRoute,
+];

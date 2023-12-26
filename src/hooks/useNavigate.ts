@@ -9,5 +9,27 @@ export const internalNavigation = () => {
       params: { name },
     });
   };
-  return { changePokemonTab };
+
+  const openMoveDialog = (name: string, move: string) => {
+    router.navigate({
+      to: "/pokemon/$name/$move",
+      from: "/pokemon/$name",
+      params: { name, move },
+      hash(prev) {
+        return prev ?? "";
+      },
+    });
+  };
+
+  const closeMoveDialog = (name: string) => {
+    router.navigate({
+      to: "/pokemon/$name",
+      from: "/pokemon/$name/$move",
+      params: { name },
+      hash(prev) {
+        return prev ?? "";
+      },
+    });
+  };
+  return { changePokemonTab, openMoveDialog, closeMoveDialog };
 };

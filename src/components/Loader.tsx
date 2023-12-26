@@ -1,6 +1,9 @@
-const PokeballLoader = () => {
+import { cn } from "@/lib/utils";
+import { Dialog } from "./ui/dialog";
+
+const MainLoader = ({ className }: { className?: string }) => {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className={cn("flex justify-center items-center h-screen", className)}>
       <div className="animate-spin-slow">
         <svg
           className=" h-96 w-96"
@@ -45,4 +48,22 @@ const PokeballLoader = () => {
   );
 };
 
-export default PokeballLoader;
+interface Props {
+  showInDialog?: boolean;
+}
+const PokemonLoader = ({ showInDialog }: Props) => {
+  showInDialog ||= false;
+
+  if (!showInDialog) {
+    return <MainLoader />;
+  }
+  return (
+    <Dialog open>
+      <article className=" fixed left-[50%] top-[50%] z-50 grid translate-x-[-50%] translate-y-[-50%] gap-4 p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg w-fit h-fit bg-transparent">
+        <MainLoader className={" h-fit"} />
+      </article>
+    </Dialog>
+  );
+};
+
+export default PokemonLoader;

@@ -1,3 +1,4 @@
+import { useNavigate } from "@tanstack/react-router";
 import { NamedAPIResource } from "pokenode-ts";
 
 interface Props {
@@ -5,10 +6,14 @@ interface Props {
 }
 const ListItem = ({ item }: Props) => {
   const captalisedName = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+  const navigate = useNavigate({ from: "/listPokemons" });
   return (
-    <div className="p-4 text-lg  border border-brand-secondary rounded-3xl text-center">
+    <button
+      onClick={() => navigate({ to: "/pokemon/$name" , params: { name: item.name }})}
+      className="p-4 text-lg  border border-brand-secondary rounded-3xl text-center"
+    >
       {captalisedName}
-    </div>
+    </button>
   );
 };
 export default ListItem;

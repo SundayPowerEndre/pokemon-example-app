@@ -1,6 +1,11 @@
 import { QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Outlet, Router, rootRouteWithContext } from "@tanstack/react-router";
+import {
+  Link,
+  Outlet,
+  Router,
+  rootRouteWithContext,
+} from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { mainRouteTree } from "./router";
 import { ErrorComponent } from "@/components/ErrorComponent";
@@ -16,11 +21,18 @@ export const queryClient = new QueryClient();
 
 const rootRouteComponent = () => {
   return (
-    <main className="flex justify-center items-center min-h-screen ">
-      <Outlet />
-      <ReactQueryDevtools buttonPosition="top-right" />
-      <TanStackRouterDevtools position="bottom-right" />
-    </main>
+    <>
+      <div className="p-2 mt-6 mx-4 flex gap-2 text-center self-center justify-self-center ">
+        <Link to="/listPokemons" className="[&.active]:font-bold">
+          Home
+        </Link>
+      </div>
+      <main className="flex justify-center items-center min-h-screen ">
+        <Outlet />
+        <ReactQueryDevtools buttonPosition="top-right" />
+        <TanStackRouterDevtools position="bottom-right" />
+      </main>
+    </>
   );
 };
 

@@ -1,7 +1,8 @@
-import { Navigate, Route } from "@tanstack/react-router";
+import { Navigate, Route  } from "@tanstack/react-router";
 import { rootRoute } from ".";
-import { getAllPokemonOptions } from "@/hooks/usePokemon";
+import { getAllPokemonOptions, getPokemonByNameOptions } from "@/hooks/usePokemon";
 import ListPokemon from "@/pages/ListPokemons";
+import Pokemon from "@/pages/Pokemon";
 
 const indexRoute = new Route({
   getParentRoute: () => rootRoute,
@@ -17,4 +18,13 @@ const listPokemonsRoute = new Route({
   component: ListPokemon,
 });
 
-export const mainRouteTree = [indexRoute, listPokemonsRoute];
+export const pokemonRoute = new Route({
+    getParentRoute: () => rootRoute,
+    path: "/pokemon/$name",
+    loader: ({ context: { queryClient }, params }) =>
+      queryClient.ensureQueryData(getPokemonByNameOptions(params.name)),
+    component: Pokemon,
+  });
+
+
+export const mainRouteTree = [indexRoute, listPokemonsRoute, pokemonRoute];

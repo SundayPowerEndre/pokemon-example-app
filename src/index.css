@@ -91,5 +91,5 @@
 }
 
 * {
-  @apply text-brand-secondary;
+  @apply text-brand-secondary tracking-wider;
 }

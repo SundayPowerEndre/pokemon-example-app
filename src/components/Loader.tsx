@@ -19,8 +19,8 @@ const PokeballLoader = () => {
               y2="50"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FF5555" />
-              <stop offset="1" stop-color="#FF0000" />
+              <stop stopColor="#FF5555" />
+              <stop offset="1" stopColor="#FF0000" />
             </linearGradient>
           </defs>
 
@@ -30,7 +30,7 @@ const PokeballLoader = () => {
             cy="50"
             r="50"
             fill="url(#grad1)"
-            clip-path="url(#half)"
+            clipPath="url(#half)"
           />
           <path
             d="M50 35c8.284 0 15 6.716 15 15s-6.716 15-15 15-15-6.716-15-15 6.716-15 15-15z"

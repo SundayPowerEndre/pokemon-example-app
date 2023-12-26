@@ -4,7 +4,7 @@ import { Outlet, Router, rootRouteWithContext } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { mainRouteTree } from "./router";
 import { ErrorComponent } from "@/components/ErrorComponent";
-import { Spinner } from "@/components/Spinner";
+import PokeballLoader from "@/components/Loader";
 
 declare module "@tanstack/react-router" {
   interface Register {
@@ -36,7 +36,7 @@ const routeTree = rootRoute.addChildren([...mainRouteTree]);
 export const router = new Router({
   routeTree,
   defaultPreload: "intent",
-  defaultPendingComponent: Spinner,
+  defaultPendingComponent: PokeballLoader,
   defaultErrorComponent: ErrorComponent,
   defaultPreloadStaleTime: 0,
   context: {

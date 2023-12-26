@@ -3,9 +3,10 @@ import { pokemonRoute } from "@/routing/router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useRouter } from "@tanstack/react-router";
+import {  useRouter } from "@tanstack/react-router";
 import { internalNavigation } from "@/hooks/useNavigate";
-import Info from "./Info";
+import InfoTab from "./Tabs/InfoTab";
+import MovesTab from "./Tabs/MovesTab";
 
 const Pokemon = () => {
   const { name } = pokemonRoute.useParams();
@@ -37,9 +38,11 @@ const Pokemon = () => {
         </TabsList>
 
         <TabsContent value="info">
-          <Info data={data} />
+          <InfoTab data={data} />
         </TabsContent>
-        <TabsContent value="moves">something something darkside .</TabsContent>
+        <TabsContent value="moves">
+          <MovesTab data={data} />
+        </TabsContent>
       </Tabs>
     </>
   );

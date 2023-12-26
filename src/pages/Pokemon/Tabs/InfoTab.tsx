@@ -19,7 +19,7 @@ const Info = ({
   <div className="p-6 rounded-xl shadow-md flex flex-col items-center space-y-4">
     <div className="text-center">
       <h2 className="text-xl font-bold">
-        {name} (#{id})
+        {capitaliseWord(name)} (#{id})
       </h2>
       <div className=" flex flex-row">
         {front_default && (

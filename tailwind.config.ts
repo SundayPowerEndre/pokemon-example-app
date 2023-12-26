@@ -22,13 +22,13 @@ export const theme = {
       ring: "hsl(var(--ring))",
       background: "hsl(var(--background))",
       foreground: "hsl(var(--foreground))",
-      "brand-primary": {
+      "brand-primary":{
         DEFAULT: "hsl(var(--teal))",
       },
-      "brand-secondary": {
-        DEFAULT: "hsl(var(--pink))",
+      "brand-secondary":{
+        DEFAULT: "hsl(var(--pink-dark))",
       },
-
+      
       primary: {
         DEFAULT: "hsl(var(--primary))",
         foreground: "hsl(var(--primary-foreground))",

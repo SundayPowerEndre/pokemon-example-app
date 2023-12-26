@@ -27,7 +27,7 @@ const rootRouteComponent = () => {
           Home
         </Link>
       </div>
-      <main className="flex justify-center items-center min-h-screen ">
+      <main className="flex justify-center items-center min-h-screen">
         <Outlet />
         <ReactQueryDevtools buttonPosition="top-right" />
         <TanStackRouterDevtools position="bottom-right" />

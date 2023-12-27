@@ -26,7 +26,6 @@ export const rootRoute = rootRouteWithContext<{
 
 const routeTree = rootRoute.addChildren([...mainRouteTree]);
 
-// Set up a Router instance
 export const router = new Router({
   routeTree,
   defaultPreload: "intent",

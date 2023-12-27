@@ -24,11 +24,34 @@ export const theme = {
       foreground: "hsl(var(--foreground))",
       "brand-primary": {
         DEFAULT: "hsl(var(--teal))",
+        light: "hsl(var(--teal-light))",
+        dark: "hsl(var(--teal-dark))",
+        lighest: "hsl(var(--teal-lightest))",
       },
       "brand-secondary": {
-        DEFAULT: "hsl(var(--pink-dark))",
+        DEFAULT: "hsl(var(--soft-pink))",
+        light: "hsl(var(--soft-pink-light))",
+        dark: "hsl(var(--soft-pink-dark))",
+        lighest: "hsl(var(--soft-pink-lightest))",
       },
-
+      "brand-lavender": {
+        DEFAULT: "hsl(var(--light-lavender))",
+        light: "hsl(var(--light-lavender-light))",
+        dark: "hsl(var(--light-lavender-dark))",
+        lighest: "hsl(var(--light-lavender-lightest))",
+      },
+      "brand-green": {
+        DEFAULT: "hsl(var(--pale-green))",
+        light: "hsl(var(--pale-green-light))",
+        dark: "hsl(var(--pale-green-dark))",
+        lighest: "hsl(var(--pale-green-lightest))",
+      },
+      "brand-yellow": {
+        DEFAULT: "hsl(var(--pastel-yellow))",
+        light: "hsl(var(--pastel-yellow-light))",
+        dark: "hsl(var(--pastel-yellow-dark))",
+        lighest: "hsl(var(--pastel-yellow-lightest))",
+      },
       primary: {
         DEFAULT: "hsl(var(--primary))",
         foreground: "hsl(var(--primary-foreground))",

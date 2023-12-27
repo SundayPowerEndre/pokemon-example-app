@@ -1,6 +1,4 @@
 import React, { useState, useRef } from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { SearchIcon, XIcon } from "lucide-react";
 import clsx from "clsx";
 
@@ -40,20 +38,20 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <div
       className={clsx(
-        "relative flex items-center self-center",
+        "relative flex items-center self-center justify-self-start",
         fullWidth && "w-full",
       )}
     >
       <div className={clsx("inline-flex relative", fullWidth && "w-full")}>
-        <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-        <Input
+        <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-brand-secondary-lighest hover:text-brand-secondary" />
+        <input
           ref={inputRef}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder={placeholderText}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          className="pl-10 pr-3 py-2 border border-gray-300 rounded text-grey-dark bg-grey-lightest w-full focus:outline-none"
+          className="pl-10 pr-3 py-2 border border-brand-secondary-lighest rounded-full bg-transparent text-grey-dark bg-grey-lightest w-full focus:outline-none"
         />
 
         {value && (
@@ -62,19 +60,19 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center text-gray-400"
             aria-label="Clear"
           >
-            <XIcon className="w-5 h-5" />
+            <XIcon className="w-5 h-5 text-brand-secondary-lighest hover:text-brand-secondary" />
           </button>
         )}
       </div>
       {isActive && (
-        <Button
+        <button
           onClick={() => setIsActive(false)}
           className={
-            "ml-2 text-white bg-blue-500 px-4 py-2 rounded focus:outline-none"
+            "ml-2 text-white  bg-brand-secondary px-4 py-2 rounded focus:outline-none"
           }
         >
           Cancel
-        </Button>
+        </button>
       )}
     </div>
   );

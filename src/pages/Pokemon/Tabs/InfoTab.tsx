@@ -16,7 +16,7 @@ const Info = ({
     sprites: { front_default, back_default },
   },
 }: Props) => (
-  <div className="p-6 rounded-xl shadow-md flex flex-col items-center space-y-4">
+  <div className="p-6 rounded-xl shadow-md flex flex-col space-y-4 items-center">
     <div className="text-center">
       <h2 className="text-xl font-bold">
         {capitaliseWord(name)} (#{id})

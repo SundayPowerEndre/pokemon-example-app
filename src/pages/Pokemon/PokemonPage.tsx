@@ -1,4 +1,3 @@
-
 import { pokemonRoute } from "@/routing/router";
 import { Outlet } from "@tanstack/react-router";
 import { PokemonTabs } from "./Tabs";
@@ -9,7 +8,7 @@ export const PokemonPage = () => {
 
   return (
     <>
-      <article className="flex flex-col gap-4 my-4 self-start">
+      <article className="flex flex-col gap-4 my-4 min-w-[50vw] items-center">
         <PokemonTabs name={name} tab={tab} />
         <Outlet />
       </article>

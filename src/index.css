@@ -16,11 +16,30 @@
     --teal: 180, 54%, 34%; /* Regular teal */
     --teal-light: 180, 54%, 44%; /* Lighter teal */
     --teal-dark: 180, 54%, 24%; /* Darker teal */
+    --teal-lightest: 180, 54%, 54%; /* Lightest teal */
 
-    /* Secondary - Soft Pink */
-    --pink: 330, 100%, 86%; /* Soft pink */
-    --pink-light: 330, 100%, 90%; /* Lighter soft pink */
-    --pink-dark: 330, 100%, 80%; /* Darker soft pink */
+    /* Secondary - Pastel Yellow */
+    --pastel-yellow: 50, 100%, 86%; /* Regular pastel yellow */
+    --pastel-yellow-light: 50, 100%, 91%; /* Lighter pastel yellow */
+    --pastel-yellow-dark: 50, 100%, 76%; /* Darker pastel yellow */
+    --pastel-yellow-lightest: 50, 100%, 96%; /* Lightest pastel yellow */
+
+    /* Tertiary - Soft Pink */
+    --soft-pink: 340, 100%, 87%; /* Regular soft pink */
+    --soft-pink-light: 340, 100%, 92%; /* Lighter soft pink */
+    --soft-pink-dark: 340, 100%, 77%; /* Darker soft pink */
+    --soft-pink-lightest: 340, 100%, 97%; /* Lightest soft pink */
+
+    /* Quaternary - Light Lavender */
+    --light-lavender: 270, 60%, 80%; /* Regular light lavender */
+    --light-lavender-light: 270, 60%, 85%; /* Lighter light lavender */
+    --light-lavender-dark: 270, 60%, 70%; /* Darker light lavender */
+    --light-lavender-lightest: 270, 60%, 90%; /* Lightest light lavender */
+    /* Quinary - Pale Green (Adjusted) */
+    --pale-green: 120, 25%, 75%; /* Darker regular pale green */
+    --pale-green-light: 120, 25%, 80%; /* Darker lighter pale green */
+    --pale-green-dark: 120, 25%, 65%; /* Darker darker pale green */
+    --pale-green-lightest: 120, 25%, 85%; /* Darker lightest pale green */
 
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
@@ -86,6 +105,20 @@
 
 @layer base {
   body {
-    @apply min-h-screen bg-gradient-to-b from-gray-800 via-brand-primary to-slate-800;
+    @apply min-h-screen bg-brand-lavender;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(
+      farthest-corner at center,
+      transparent,
+      rgba(0, 0, 0, 0.05) 70%
+    );
+    pointer-events: none;
   }
 }

@@ -29,7 +29,7 @@ export const PokemonTabs = ({ name, tab: selectedTab }: Props) => {
             <Button
               key={tab}
               className={clsx(
-                "bg-gray-300 bg-opacity-20 p-2",
+                " bg-gray-600 bg-opacity-20 p-2 min-w-[100px] rounded-xl text-center text-sm",
                 selectedTab === tab && "bg-opacity-100"
               )}
               onMouseDown={() => changePokemonTab(tab, name)}

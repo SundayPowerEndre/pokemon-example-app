@@ -1,8 +1,5 @@
 import { QueryClient } from "@tanstack/react-query";
-import {
-  Router,
-  rootRouteWithContext,
-} from "@tanstack/react-router";
+import { Router, rootRouteWithContext } from "@tanstack/react-router";
 
 import { mainRouteTree } from "./router";
 import { ErrorComponent } from "@/components/ErrorComponent";
@@ -16,7 +13,6 @@ declare module "@tanstack/react-router" {
 }
 
 export const queryClient = new QueryClient();
-
 
 export const rootRoute = rootRouteWithContext<{
   queryClient: QueryClient;

@@ -14,7 +14,7 @@ const rootRouteComponent = () => {
         <Link
           to="/pokemon/$name"
           search={{ tab: "info" }}
-          params={{name: "bulbasaur"}}
+          params={{ name: "bulbasaur" }}
           className="[&.active]:font-bold [&.active]:text-brand-primary text-brand-secondary"
         >
           Bulbasaur

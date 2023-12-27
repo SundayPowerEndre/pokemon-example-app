@@ -12,7 +12,11 @@ const ListItem = ({ item }: Props) => {
   return (
     <button
       onClick={() =>
-        navigate({ to: pokemonRoute.to, params: { name: item.name }, search: { tab: "info" } })
+        navigate({
+          to: pokemonRoute.to,
+          params: { name: item.name },
+          search: { tab: "info" },
+        })
       }
       className="p-4 text-lg border border-brand-secondary rounded-3xl text-center"
     >

@@ -1,6 +1,5 @@
 import { apiClient } from "@/api";
 import { infiniteQueryOptions, queryOptions } from "@tanstack/react-query";
-import { NamedAPIResourceList } from "pokenode-ts";
 
 export const getAllPokemonOptions = infiniteQueryOptions({
   queryKey: ["list-pokemon"],
@@ -8,10 +7,17 @@ export const getAllPokemonOptions = infiniteQueryOptions({
   queryFn: async ({
     pageParam: { offset, limit } = { offset: 0, limit: 50 },
   }) => {
+    // I do not understand the underlying typing system well enough to prioritise fixing this...
     const response = await apiClient.pokemon.listPokemons(offset, limit);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { results: _, ...rest } = response;
-    return { pages: [response], pageParams: [{ offset, limit }], ...rest } as unknown as {results:NamedAPIResourceList["results"], pageParams: {offset:number, limit:number[]},next?:string, previous?:string, count?:number };
+    const output = {
+      results: response.results,
+      pages: [response],
+      pageParams: [{ offset, limit }],
+      ...rest,
+    };
+    return output as Omit<typeof output, "pages">;
   },
   getNextPageParam: (lastPage) => {
     if (!lastPage) return undefined;

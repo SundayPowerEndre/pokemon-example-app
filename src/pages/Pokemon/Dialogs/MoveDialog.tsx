@@ -24,7 +24,7 @@ const MoveDialog = () => {
   } = useSuspenseQuery(getPokemonMoveByNameOptions(moveName));
   return (
     <Dialog open onOpenChange={(open) => onChangeDialog(open, name)}>
-      <DialogContent >
+      <DialogContent>
         <DialogHeader>
           <DialogTitle>{capitaliseWord(moveName)}</DialogTitle>
           <DialogDescription className=" text-black">

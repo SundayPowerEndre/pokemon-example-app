@@ -28,7 +28,7 @@ export const internalNavigation = () => {
       from: "/pokemon/$name/$move",
       params: { name },
       search(prev) {
-        return { tab: prev.tab ? prev.tab : "moves" }
+        return { tab: prev.tab ? prev.tab : "moves" };
       },
     });
   };

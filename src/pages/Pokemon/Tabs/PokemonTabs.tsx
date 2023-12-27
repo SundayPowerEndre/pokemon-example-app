@@ -1,33 +1,41 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { capitaliseWord } from "@/lib/utils";
-import { PokemonTabEnum, PokemonTabOptions, pokemonTabOptions } from "@/routing/routeValidation";
+import {
+  PokemonTabEnum,
+  PokemonTabOptions,
+  pokemonTabOptions,
+} from "@/routing/routeValidation";
 import InfoTab from "./InfoTab";
 import MovesTab from "./MovesTab";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { getPokemonByNameOptions } from "@/hooks/usePokemon";
 import { internalNavigation } from "@/hooks/useNavigate";
+import { Button } from "@/components/ui/button";
+import clsx from "clsx";
 
 interface Props {
   name: string;
   tab: PokemonTabOptions;
 }
 
-export const PokemonTabs = ({ name, tab }: Props) => {
+export const PokemonTabs = ({ name, tab: selectedTab }: Props) => {
   const { data } = useSuspenseQuery(getPokemonByNameOptions(name));
   const { changePokemonTab } = internalNavigation();
   return (
-    <Tabs value={tab} className="w-fit place-self-start">
+    <Tabs value={selectedTab} className="w-fit place-self-start">
       <TabsList className=" text-brand-secondary bg-transparent w-full gap-3">
         {pokemonTabOptions.map((tab) => {
           return (
-            <TabsTrigger
+            <Button
               key={tab}
-              value={tab}
-              className="bg-gray-300 bg-opacity-20 p-2"
+              className={clsx(
+                "bg-gray-300 bg-opacity-20 p-2",
+                selectedTab === tab && "bg-opacity-100"
+              )}
               onMouseDown={() => changePokemonTab(tab, name)}
             >
               {capitaliseWord(tab)}
-            </TabsTrigger>
+            </Button>
           );
         })}
       </TabsList>

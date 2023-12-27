@@ -24,7 +24,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "declarations.d.ts",
+    "vite.config.ts",
+    "tailwind.config.ts"
+  ],
   "exclued": ["./generated-api"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { SearchIcon, XIcon } from "lucide-react";
+import clsx from "clsx";
 
 export interface SearchBarProps {
   fullWidth?: boolean;
@@ -37,8 +38,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   };
 
   return (
-    <div className={`relative flex items-center self-center ${fullWidth ? "w-full" : ""}`}>
-      <div className=" inline-flex relative ">
+    <div
+      className={clsx(
+        "relative flex items-center self-center",
+        fullWidth && "w-full",
+      )}
+    >
+      <div className={clsx("inline-flex relative", fullWidth && "w-full")}>
         <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
         <Input
           ref={inputRef}
@@ -63,7 +69,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       {isActive && (
         <Button
           onClick={() => setIsActive(false)}
-          className="ml-2 text-white bg-blue-500 px-4 py-2 rounded focus:outline-none"
+          className={
+            "ml-2 text-white bg-blue-500 px-4 py-2 rounded focus:outline-none"
+          }
         >
           Cancel
         </Button>

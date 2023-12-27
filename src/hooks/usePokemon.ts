@@ -9,15 +9,15 @@ export const getAllPokemonOptions = infiniteQueryOptions({
   }) => {
     // I do not understand the underlying typing system well enough to prioritise fixing this...
     const response = await apiClient.pokemon.listPokemons(offset, limit);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { results: _, ...rest } = response;
-    const output = {
+    const wrangledData = {
       results: response.results,
       pages: [response],
       pageParams: [{ offset, limit }],
       ...rest,
     };
-    return output as Omit<typeof output, "pages">;
+    const output: Omit<typeof wrangledData, "pages"> = wrangledData;
+    return output;
   },
   getNextPageParam: (lastPage) => {
     if (!lastPage) return undefined;

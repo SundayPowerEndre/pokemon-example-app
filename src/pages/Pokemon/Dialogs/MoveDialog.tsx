@@ -1,7 +1,6 @@
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -27,14 +26,26 @@ const MoveDialog = () => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>{capitaliseWord(moveName)}</DialogTitle>
-          <DialogDescription className=" text-black">
-            <p>Type: {capitaliseWord(typeName)}</p>
-            {damage_class && <p>Class: {capitaliseWord(damage_class.name)} </p>}
-            <p>Power: {power}</p>
-            <p>Accuracy: {accuracy}</p>
-            <p>PP: {pp}</p>
-          </DialogDescription>
         </DialogHeader>
+        <div>
+          <p>
+            <strong>Type:</strong> {capitaliseWord(typeName)}
+          </p>
+          {damage_class && (
+            <p>
+              <strong>Class:</strong> {capitaliseWord(damage_class.name)}{" "}
+            </p>
+          )}
+          <p>
+            <strong>Power:</strong> {power}
+          </p>
+          <p>
+            <strong>Accuracy:</strong> {accuracy}
+          </p>
+          <p>
+            <strong>PP:</strong> {pp}
+          </p>
+        </div>
       </DialogContent>
     </Dialog>
   );

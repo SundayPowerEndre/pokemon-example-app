@@ -60,13 +60,15 @@ const Info = ({
         <strong>Types:</strong>
         <span>
           &nbsp;
-          {types.map(({ type: { name }, slot }, index) => (
-            <span key={index}>
-              {capitaliseWord(name)}
-              {`(${slot})`}
-              {index < abilities.length - 1 ? ", " : ""}
-            </span>
-          ))}
+          {types.map(({ type: { name }, slot }, index) => {
+            return (
+              <span key={index}>
+                {capitaliseWord(name)}
+                {`(${slot})`}
+                {index < types.length - 1 ? ", " : ""}
+              </span>
+            );
+          })}
         </span>
       </div>
     </div>

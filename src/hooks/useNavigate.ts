@@ -5,7 +5,9 @@ export const internalNavigation = () => {
     router.navigate({
       to: "/pokemon/$name",
       from: "/pokemon/$name",
-      hash: newTab,
+      search:{
+        tab: newTab
+      },
       params: { name },
     });
   };

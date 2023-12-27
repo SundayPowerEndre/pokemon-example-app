@@ -14,20 +14,25 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 const MoveDialog = () => {
   const { name, move: moveName } = pokemoneMoveDialogRoute.useParams();
   const {
-    data: { accuracy, effect_chance, pp, priority, power },
+    data: {
+      accuracy,
+      pp,
+      power,
+      damage_class,
+      type: { name: typeName },
+    },
   } = useSuspenseQuery(getPokemonMoveByNameOptions(moveName));
   return (
     <Dialog open onOpenChange={(open) => onChangeDialog(open, name)}>
-      <DialogContent>
+      <DialogContent >
         <DialogHeader>
           <DialogTitle>{capitaliseWord(moveName)}</DialogTitle>
-          <DialogDescription>
-            <p>Accuracy: {accuracy}</p>
-            <p>Effect Chance: {effect_chance}</p>
-            <p>PP: {pp}</p>
-            <p>Priority: {priority}</p>
+          <DialogDescription className=" text-black">
+            <p>Type: {capitaliseWord(typeName)}</p>
+            {damage_class && <p>Class: {capitaliseWord(damage_class.name)} </p>}
             <p>Power: {power}</p>
-            {/* Add more properties as needed */}
+            <p>Accuracy: {accuracy}</p>
+            <p>PP: {pp}</p>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

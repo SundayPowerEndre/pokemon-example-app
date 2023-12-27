@@ -9,6 +9,7 @@ import ListPokemon from "@/pages/ListPokemons";
 import PokemonPage from "@/pages/Pokemon";
 import MoveDialog from "@/pages/Pokemon/Dialogs/MoveDialog";
 import PokemonLoader from "@/components/Loader";
+import { PokemonDialogsSearchParamsSchema } from "./routeValidation";
 
 const indexRoute = new Route({
   getParentRoute: () => rootRoute,
@@ -30,6 +31,7 @@ export const pokemonRoute = new Route({
   loader: ({ context: { queryClient }, params }) =>
     queryClient.ensureQueryData(getPokemonByNameOptions(params.name)),
   component: PokemonPage,
+  validateSearch: (search) => PokemonDialogsSearchParamsSchema.parse(search),
 });
 
 export const pokemoneMoveDialogRoute = new Route({

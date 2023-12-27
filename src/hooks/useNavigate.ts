@@ -1,14 +1,13 @@
 import { router } from "@/routing";
+import { PokemonTabOptions } from "@/routing/routeValidation";
 
 export const internalNavigation = () => {
-  const changePokemonTab = (newTab: string, name: string) => {
+  const changePokemonTab = (newTab: PokemonTabOptions, name: string) => {
     router.navigate({
       to: "/pokemon/$name",
       from: "/pokemon/$name",
-      search:{
-        tab: newTab
-      },
       params: { name },
+      search: { tab: newTab },
     });
   };
 
@@ -17,8 +16,8 @@ export const internalNavigation = () => {
       to: "/pokemon/$name/$move",
       from: "/pokemon/$name",
       params: { name, move },
-      hash(prev) {
-        return prev ?? "";
+      search(prev) {
+        return { tab: prev.tab ? prev.tab : "moves" };
       },
     });
   };
@@ -28,8 +27,8 @@ export const internalNavigation = () => {
       to: "/pokemon/$name",
       from: "/pokemon/$name/$move",
       params: { name },
-      hash(prev) {
-        return prev ?? "";
+      search(prev) {
+        return { tab: prev.tab ? prev.tab : "moves" }
       },
     });
   };

@@ -10,7 +10,7 @@ import MovesTab from "./Tabs/MovesTab";
 import { PokemonTabEnum, pokemonTabOptions } from "@/routing/routeValidation";
 import { capitaliseWord } from "@/lib/utils";
 
-const PokemonPage = () => {
+export const PokemonPage = () => {
   const { name } = pokemonRoute.useParams();
   const { tab } = pokemonRoute.useSearch();
   const { data } = useSuspenseQuery(getPokemonByNameOptions(name));
@@ -46,4 +46,3 @@ const PokemonPage = () => {
     </>
   );
 };
-export default PokemonPage;

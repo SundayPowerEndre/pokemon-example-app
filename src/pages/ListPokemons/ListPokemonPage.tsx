@@ -3,7 +3,7 @@ import { getAllPokemonOptions } from "@/hooks/usePokemon";
 import ListItem from "./ListItem";
 import { useEffect } from "react";
 
-function ListPokemon() {
+export const ListPokemon = () => {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useSuspenseInfiniteQuery(getAllPokemonOptions);
 
@@ -33,6 +33,4 @@ function ListPokemon() {
       {isFetchingNextPage && <div className=" my-6">Loading more...</div>}
     </article>
   );
-}
-
-export default ListPokemon;
+};

@@ -5,8 +5,8 @@ import {
   getPokemonByNameOptions,
   getPokemonMoveByNameOptions,
 } from "@/hooks/usePokemon";
-import ListPokemon from "@/pages/ListPokemons";
-import PokemonPage from "@/pages/Pokemon";
+import { ListPokemon } from "@/pages/ListPokemons";
+import { PokemonPage } from "@/pages/Pokemon";
 import MoveDialog from "@/pages/Pokemon/Dialogs/MoveDialog";
 import PokemonLoader from "@/components/Loader";
 import { PokemonDialogsSearchParamsSchema } from "./routeValidation";

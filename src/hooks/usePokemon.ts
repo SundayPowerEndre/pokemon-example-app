@@ -1,12 +1,28 @@
 import { apiClient } from "@/api";
-import { queryOptions } from "@tanstack/react-query";
+import { infiniteQueryOptions, queryOptions } from "@tanstack/react-query";
+import { NamedAPIResourceList } from "pokenode-ts";
 
-export const getAllPokemonOptions = queryOptions({
+export const getAllPokemonOptions = infiniteQueryOptions({
   queryKey: ["list-pokemon"],
-  queryFn: async () => {
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-    //throw new Error("test");
-    return await apiClient.pokemon.listPokemons(0, 9);
+  initialPageParam: { offset: 0, limit: 50 },
+  queryFn: async ({
+    pageParam: { offset, limit } = { offset: 0, limit: 50 },
+  }) => {
+    const response = await apiClient.pokemon.listPokemons(offset, limit);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { results: _, ...rest } = response;
+    return { pages: [response], pageParams: [{ offset, limit }], ...rest } as unknown as {results:NamedAPIResourceList["results"], pageParams: {offset:number, limit:number[]},next?:string, previous?:string, count?:number };
+  },
+  getNextPageParam: (lastPage) => {
+    if (!lastPage) return undefined;
+    if (lastPage && lastPage.next) {
+      const url = new URL(lastPage.next);
+      const params = new URLSearchParams(url.search);
+      const offset = Number(params.get("offset"));
+      const limit = Number(params.get("limit"));
+      return { offset, limit };
+    }
+    return null;
   },
 });
 

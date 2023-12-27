@@ -18,7 +18,7 @@ const PokemonPage = () => {
 
   return (
     <>
-      <article className="flex flex-col gap-4 my-4">
+      <article className="flex flex-col gap-4 my-4 self-start">
         <Tabs defaultValue={tab} className="w-fit place-self-start">
           <TabsList className=" text-brand-secondary bg-transparent w-full gap-3">
             {pokemonTabOptions.map((tab) => {

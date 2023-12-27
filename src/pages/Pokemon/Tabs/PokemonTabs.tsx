@@ -26,16 +26,19 @@ export const PokemonTabs = ({ name, tab: selectedTab }: Props) => {
       <TabsList className=" text-brand-secondary bg-transparent w-full gap-3">
         {pokemonTabOptions.map((tab) => {
           return (
-            <Button
-              key={tab}
-              className={clsx(
-                " bg-gray-600 bg-opacity-20 p-2 min-w-[100px] rounded-xl text-center text-sm",
-                selectedTab === tab && "bg-opacity-100"
+            <div className="mb-6" key={tab}>
+              <button
+                className={clsx(
+                  " bg-transparent bg-opacity-20 p-2 min-w-[100px] rounded-xl text-center text-sm text-white"
+                )}
+                onMouseDown={() => changePokemonTab(tab, name)}
+              >
+                {capitaliseWord(tab)}
+              </button>
+              {selectedTab === tab && (
+                <div className="w-full h-1 bg-brand-secondary" />
               )}
-              onMouseDown={() => changePokemonTab(tab, name)}
-            >
-              {capitaliseWord(tab)}
-            </Button>
+            </div>
           );
         })}
       </TabsList>

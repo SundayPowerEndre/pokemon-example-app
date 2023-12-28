@@ -7,7 +7,6 @@ export const getAllPokemonOptions = infiniteQueryOptions({
   queryFn: async ({
     pageParam: { offset, limit } = { offset: 0, limit: 12 * 5 },
   }) => {
-    await new Promise((resolve) => setTimeout(resolve, 5000));
     // I do not understand the underlying typing system well enough to prioritise fixing this...
     const response = await apiClient.pokemon.listPokemons(offset, limit);
     const { results: _, ...rest } = response;
@@ -37,7 +36,6 @@ export const getPokemonByNameOptions = (name: string) =>
   queryOptions({
     queryKey: ["pokemon", name],
     queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
       return await apiClient.pokemon.getPokemonByName(name);
     },
   });
@@ -46,7 +44,6 @@ export const getPokemonMoveByNameOptions = (name: string) =>
   queryOptions({
     queryKey: ["pokemon-move", name],
     queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
       return await apiClient.move.getMoveByName(name);
     },
   });

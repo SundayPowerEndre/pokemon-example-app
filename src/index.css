@@ -104,8 +104,11 @@
 }
 
 @layer base {
+  html {
+    @apply flex min-h-screen flex-col;
+  }
   body {
-    @apply min-h-screen bg-brand-lavender;
+    @apply flex-grow bg-brand-lavender;
   }
   body::after {
     content: "";

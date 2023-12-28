@@ -27,7 +27,7 @@ export const ListPokemon = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex min-h-[90vh] flex-col justify-between">
       <article
         className="grid max-h-[calc(100vh-184px)] min-h-6 grid-cols-2 gap-4 self-start overflow-auto md:grid-cols-3 lg:grid-cols-4 "
         onScroll={handleScroll}

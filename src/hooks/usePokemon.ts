@@ -21,7 +21,7 @@ export const getAllPokemonOptions = infiniteQueryOptions({
   },
   getNextPageParam: (lastPage) => {
     if (!lastPage) return undefined;
-    if (lastPage && lastPage.next) {
+    if (lastPage?.next) {
       const url = new URL(lastPage.next);
       const params = new URLSearchParams(url.search);
       const offset = Number(params.get("offset"));

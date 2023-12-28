@@ -1,7 +1,7 @@
 import { capitaliseWord } from "@/lib/utils";
 import { pokemonRoute } from "@/routing/router";
 import { useNavigate } from "@tanstack/react-router";
-import { NamedAPIResource } from "pokenode-ts";
+import { type NamedAPIResource } from "pokenode-ts";
 
 interface Props {
   item: NamedAPIResource;
@@ -18,7 +18,7 @@ const ListItem = ({ item }: Props) => {
           search: { tab: "info" },
         })
       }
-      className="p-4 text-lg border border-brand-secondary  bg-transparent rounded-md drop-shadow-lg text-center"
+      className="rounded-md border border-brand-secondary bg-transparent  p-4 text-center text-lg drop-shadow-lg"
     >
       {captalisedName}
     </button>

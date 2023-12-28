@@ -4,10 +4,10 @@ import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 const rootRouteComponent = () => {
   return (
     <>
-      <div className="p-2 mt-6 mx-4 flex gap-4 text-center self-center justify-self-center ">
+      <div className="mx-4 mt-6 flex gap-4 self-center justify-self-center p-2 text-center ">
         <Link
           to="/listPokemons"
-          className="[&.active]:font-bold [&.active]:text-brand-secondary text-brand-secondary-light drop-shadow-md"
+          className="text-brand-secondary-light drop-shadow-md [&.active]:font-bold [&.active]:text-brand-secondary"
         >
           Home
         </Link>
@@ -15,12 +15,12 @@ const rootRouteComponent = () => {
           to="/pokemon/$name"
           search={{ tab: "info" }}
           params={{ name: "bulbasaur" }}
-          className="[&.active]:font-bold [&.active]:text-brand-secondary text-brand-secondary-light drop-shadow-md"
+          className="text-brand-secondary-light drop-shadow-md [&.active]:font-bold [&.active]:text-brand-secondary"
         >
           Bulbasaur
         </Link>
       </div>
-      <main className="flex justify-center min-h-screen text-brand-secondary-lightest tracking-wider">
+      <main className="flex min-h-screen justify-center tracking-wider text-brand-secondary-lightest">
         <Outlet />
         <ReactQueryDevtools buttonPosition="top-right" />
         <TanStackRouterDevtools position="bottom-right" />

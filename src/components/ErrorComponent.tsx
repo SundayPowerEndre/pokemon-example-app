@@ -1,4 +1,4 @@
-import { ErrorRouteProps } from "@tanstack/react-router";
+import { type ErrorRouteProps } from "@tanstack/react-router";
 import { ErrorComponent as DefaultErrorComponent } from "@tanstack/react-router";
 import { Dialog, DialogContent } from "./ui/dialog";
 

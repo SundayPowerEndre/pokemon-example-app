@@ -14,14 +14,14 @@ export const ListPokemon = () => {
     pageData.results.filter((item) => mightBePokemon(item.name, searchBarText)),
   );
 
-  const handleScroll = (event: React.UIEvent<HTMLElement>) => {
+  const handleScroll = async (event: React.UIEvent<HTMLElement>) => {
     const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
     const currentPos = scrollHeight - scrollTop;
     const bottom = clientHeight;
     const isNearBottom = currentPos < bottom + 100;
     if (isNearBottom) {
       if (hasNextPage) {
-        fetchNextPage();
+        await fetchNextPage();
       }
     }
   };
@@ -29,7 +29,7 @@ export const ListPokemon = () => {
   return (
     <div className="flex flex-col justify-between">
       <article
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 self-start overflow-auto max-h-[calc(100vh-184px)] min-h-6 "
+        className="grid max-h-[calc(100vh-184px)] min-h-6 grid-cols-2 gap-4 self-start overflow-auto md:grid-cols-3 lg:grid-cols-4 "
         onScroll={handleScroll}
       >
         {filteredPokemon?.map((item) => (
@@ -42,7 +42,9 @@ export const ListPokemon = () => {
           fullWidth
           value={searchBarText}
           setValue={setSearchBarText}
-          setActive={() => {}}
+          setActive={() => {
+            null;
+          }}
         />
       </div>
     </div>

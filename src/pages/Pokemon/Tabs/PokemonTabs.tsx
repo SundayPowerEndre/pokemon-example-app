@@ -2,7 +2,7 @@ import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { capitaliseWord } from "@/lib/utils";
 import {
   PokemonTabEnum,
-  PokemonTabOptions,
+  type PokemonTabOptions,
   pokemonTabOptions,
 } from "@/routing/routeValidation";
 import InfoTab from "./InfoTab";
@@ -22,20 +22,20 @@ export const PokemonTabs = ({ name, tab: selectedTab }: Props) => {
   const { changePokemonTab } = internalNavigation();
   return (
     <Tabs value={selectedTab} className="w-fit">
-      <TabsList className=" text-brand-secondary bg-transparent w-full gap-3">
+      <TabsList className=" w-full gap-3 bg-transparent text-brand-secondary">
         {pokemonTabOptions.map((tab) => {
           return (
             <div className="mb-6" key={tab}>
               <button
                 className={clsx(
-                  " bg-transparent bg-opacity-20 p-2 min-w-[100px] rounded-xl text-center text-sm text-white",
+                  " min-w-[100px] rounded-xl bg-transparent bg-opacity-20 p-2 text-center text-sm text-white",
                 )}
                 onMouseDown={() => changePokemonTab(tab, name)}
               >
                 {capitaliseWord(tab)}
               </button>
               {selectedTab === tab && (
-                <div className="w-full h-1 bg-brand-secondary" />
+                <div className="h-1 w-full bg-brand-secondary" />
               )}
             </div>
           );

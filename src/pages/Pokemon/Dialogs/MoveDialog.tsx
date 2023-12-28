@@ -6,7 +6,12 @@ import {
 } from "@/components/ui/dialog";
 import { internalNavigation } from "@/hooks/useNavigate";
 import { getPokemonMoveByNameOptions } from "@/hooks/usePokemon";
-import { capitaliseWord } from "@/lib/utils";
+import {
+  capitaliseWord,
+  cn,
+  getColorFromType,
+  pokemonTypeColors,
+} from "@/lib/utils";
 import { pokemoneMoveDialogRoute } from "@/routing/router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
@@ -21,9 +26,13 @@ const MoveDialog = () => {
       type: { name: typeName },
     },
   } = useSuspenseQuery(getPokemonMoveByNameOptions(moveName));
+  const typeColor = getColorFromType(typeName);
   return (
-    <Dialog open onOpenChange={(open) => onChangeDialog(open, name)}>
-      <DialogContent>
+    <Dialog
+      open
+      onOpenChange={async (open) => await onChangeDialog(open, name)}
+    >
+      <DialogContent className={cn(pokemonTypeColors[typeColor])}>
         <DialogHeader>
           <DialogTitle>{capitaliseWord(moveName)}</DialogTitle>
         </DialogHeader>
@@ -51,10 +60,10 @@ const MoveDialog = () => {
   );
 };
 
-function onChangeDialog(open: boolean, name: string) {
+async function onChangeDialog(open: boolean, name: string) {
   const { closeMoveDialog } = internalNavigation();
   if (!open) {
-    closeMoveDialog(name);
+    await closeMoveDialog(name);
   }
 }
 

@@ -27,6 +27,7 @@
   "include": [
     "src",
     "declarations.d.ts",
+    "prettier.config.js",
     "vite.config.ts",
     "tailwind.config.ts"
   ],

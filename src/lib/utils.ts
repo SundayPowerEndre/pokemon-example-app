@@ -3,7 +3,8 @@ import { twMerge } from "tailwind-merge";
 import doubleMetaphone from "talisman/phonetics/double-metaphone";
 import jaroWinkler from "talisman/metrics/jaro-winkler";
 import Fuse from "fuse.js";
-
+import { TYPES as POKEMON_TYPES } from "pokenode-ts";
+export type PokemonTypes = keyof typeof POKEMON_TYPES;
 const FUZZY_THRESHOLD = 0.5 as const;
 const PHONETIC_THRESHOLD = 0.4 as const;
 
@@ -20,13 +21,18 @@ export function mightBePokemon(pokemon: string, search: string) {
   if (pokemon.toLowerCase().startsWith(search.toLowerCase())) {
     return true;
   }
-  const targetPhonetics = doubleMetaphone(pokemon);
-  const inputPhonetics = doubleMetaphone(search);
+
   const fuse = new Fuse([pokemon], { includeScore: true });
   const fuzzyMatch = fuse.search(search);
   const isFuzzyMatch =
     fuzzyMatch.length > 0 && fuzzyMatch[0].score! > FUZZY_THRESHOLD;
+  /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+  /* eslint-disable @typescript-eslint/no-unsafe-call */
+  const targetPhonetics = doubleMetaphone(pokemon);
+  const inputPhonetics = doubleMetaphone(search);
   const phoneticSimilarity = jaroWinkler(targetPhonetics, inputPhonetics);
+  /* eslint-enable @typescript-eslint/no-unsafe-assignment */
+  /* eslint-enable @typescript-eslint/no-unsafe-call */
 
   const isPhoneticMatch = phoneticSimilarity > PHONETIC_THRESHOLD;
   return isFuzzyMatch || isPhoneticMatch;
@@ -53,3 +59,14 @@ export const pokemonTypeColors = {
   UNKNOWN: "bg-gray-300",
   SHADOW: "bg-gray-700",
 } as const;
+
+export const getColorFromType = (typeString: string | undefined) => {
+  const maybeColor = typeString?.toUpperCase() ?? "";
+
+  const typeColor = (
+    Object.keys(POKEMON_TYPES).includes(maybeColor)
+      ? maybeColor
+      : POKEMON_TYPES.NORMAL.toString().toUpperCase()
+  ) as PokemonTypes;
+  return typeColor;
+};

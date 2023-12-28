@@ -8,7 +8,7 @@ export const PokemonPage = () => {
 
   return (
     <>
-      <article className="flex flex-col gap-4 my-4 min-w-[50vw] items-center">
+      <article className="my-4 flex min-w-[50vw] flex-col items-center gap-4">
         <PokemonTabs name={name} tab={tab} />
         <Outlet />
       </article>

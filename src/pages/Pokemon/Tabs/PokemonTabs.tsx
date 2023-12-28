@@ -22,13 +22,13 @@ export const PokemonTabs = ({ name, tab: selectedTab }: Props) => {
   const { changePokemonTab } = internalNavigation();
   return (
     <Tabs value={selectedTab} className="w-fit">
-      <TabsList className=" w-full gap-3 bg-transparent text-brand-secondary">
+      <TabsList className=" w-full gap-3 bg-transparent text-brand-secondary ">
         {pokemonTabOptions.map((tab) => {
           return (
             <div className="mb-6" key={tab}>
               <button
                 className={clsx(
-                  " min-w-[100px] rounded-xl bg-transparent bg-opacity-20 p-2 text-center text-sm text-white",
+                  " min-w-[100px] rounded-xl bg-transparent bg-opacity-20 p-2 text-center text-xl text-white",
                 )}
                 onMouseDown={() => changePokemonTab(tab, name)}
               >

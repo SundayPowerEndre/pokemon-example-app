@@ -8,6 +8,29 @@ export const content = [
 ];
 export const prefix = "";
 export const theme = {
+  aspectRatio: {
+    auto: "auto",
+    square: "1 / 1",
+    video: "16 / 9",
+    "pokemon-card": "2.5 / 3.5",
+    "pokemon-card-image": "10 / 7",
+    1: "1",
+    2: "2",
+    3: "3",
+    4: "4",
+    5: "5",
+    6: "6",
+    7: "7",
+    8: "8",
+    9: "9",
+    10: "10",
+    11: "11",
+    12: "12",
+    13: "13",
+    14: "14",
+    15: "15",
+    16: "16",
+  },
   container: {
     center: true,
     padding: "2rem",
@@ -17,6 +40,9 @@ export const theme = {
   },
   extend: {
     colors: {
+      "pastel-earth": "#D3C1A5",
+      "pastel-rock": "#AFAF9A",
+
       border: "hsl(var(--border))",
       input: "hsl(var(--input))",
       ring: "hsl(var(--ring))",
@@ -26,31 +52,31 @@ export const theme = {
         DEFAULT: "hsl(var(--teal))",
         light: "hsl(var(--teal-light))",
         dark: "hsl(var(--teal-dark))",
-        lighest: "hsl(var(--teal-lightest))",
+        lightest: "hsl(var(--teal-lightest))",
       },
       "brand-secondary": {
         DEFAULT: "hsl(var(--soft-pink))",
         light: "hsl(var(--soft-pink-light))",
         dark: "hsl(var(--soft-pink-dark))",
-        lighest: "hsl(var(--soft-pink-lightest))",
+        lightest: "hsl(var(--soft-pink-lightest))",
       },
       "brand-lavender": {
         DEFAULT: "hsl(var(--light-lavender))",
         light: "hsl(var(--light-lavender-light))",
         dark: "hsl(var(--light-lavender-dark))",
-        lighest: "hsl(var(--light-lavender-lightest))",
+        lightest: "hsl(var(--light-lavender-lightest))",
       },
       "brand-green": {
         DEFAULT: "hsl(var(--pale-green))",
         light: "hsl(var(--pale-green-light))",
         dark: "hsl(var(--pale-green-dark))",
-        lighest: "hsl(var(--pale-green-lightest))",
+        lightest: "hsl(var(--pale-green-lightest))",
       },
       "brand-yellow": {
         DEFAULT: "hsl(var(--pastel-yellow))",
         light: "hsl(var(--pastel-yellow-light))",
         dark: "hsl(var(--pastel-yellow-dark))",
-        lighest: "hsl(var(--pastel-yellow-lightest))",
+        lightest: "hsl(var(--pastel-yellow-lightest))",
       },
       primary: {
         DEFAULT: "hsl(var(--primary))",

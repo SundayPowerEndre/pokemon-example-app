@@ -31,3 +31,25 @@ export function mightBePokemon(pokemon: string, search: string) {
   const isPhoneticMatch = phoneticSimilarity > PHONETIC_THRESHOLD;
   return isFuzzyMatch || isPhoneticMatch;
 }
+export const pokemonTypeColors = {
+  NORMAL: "bg-gray-400",
+  FIGHTING: "bg-pastel-earth",
+  FLYING: "bg-sky-200",
+  POISON: "bg-purple-300",
+  GROUND: "bg-pastel-earth",
+  ROCK: "bg-pastel-rock",
+  BUG: "bg-brand-green",
+  GHOST: "bg-brand-lavender",
+  STEEL: "bg-zinc-200",
+  FIRE: "bg-red-300",
+  WATER: "bg-indigo-200",
+  GRASS: "bg-brand-green-dark",
+  ELECTRIC: "bg-yellow-100",
+  PSYCHIC: "bg-fuchsia-200",
+  ICE: "bg-blue-100",
+  DRAGON: "bg-indigo-400",
+  DARK: "bg-gray-600",
+  FAIRY: "bg-brand-secondary-light",
+  UNKNOWN: "bg-gray-300",
+  SHADOW: "bg-gray-700",
+} as const;

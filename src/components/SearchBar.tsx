@@ -26,6 +26,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   };
 
   const handleFocus = () => {
+    inputRef.current?.focus();
     setIsActive(true);
     setActive(true);
   };
@@ -43,7 +44,10 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       )}
     >
       <div className={clsx("inline-flex relative", fullWidth && "w-full")}>
-        <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-brand-secondary-lighest hover:text-brand-secondary" />
+        <SearchIcon
+          onClick={handleFocus}
+          className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-brand-secondary-light  hover:text-brand-secondary-lightest"
+        />
         <input
           ref={inputRef}
           value={value}
@@ -51,7 +55,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           placeholder={placeholderText}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          className="pl-10 pr-3 py-2 border border-brand-secondary-lighest rounded-full bg-transparent text-grey-dark bg-grey-lightest w-full focus:outline-none"
+          className="pl-10 pr-3 py-2 border border-brand-secondary  hover:border-brand-secondary-light rounded-full bg-transparent  bg-grey-lightest w-full focus:outline-none"
         />
 
         {value && (
@@ -60,7 +64,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center text-gray-400"
             aria-label="Clear"
           >
-            <XIcon className="w-5 h-5 text-brand-secondary-lighest hover:text-brand-secondary" />
+            <XIcon className="w-5 h-5 text-brand-secondary-light hover:text-brand-secondary-lightest" />
           </button>
         )}
       </div>
@@ -68,7 +72,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         <button
           onClick={() => setIsActive(false)}
           className={
-            "ml-2 text-white  bg-brand-secondary px-4 py-2 rounded focus:outline-none"
+            "ml-2 text-white  bg-brand-secondary hover:bg-brand-secondary-light px-4 py-2 rounded focus:outline-none"
           }
         >
           Cancel

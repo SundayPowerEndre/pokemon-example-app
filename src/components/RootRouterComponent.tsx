@@ -7,7 +7,7 @@ const rootRouteComponent = () => {
       <div className="p-2 mt-6 mx-4 flex gap-4 text-center self-center justify-self-center ">
         <Link
           to="/listPokemons"
-          className="[&.active]:font-bold [&.active]:text-brand-secondary-dark text-brand-secondary"
+          className="[&.active]:font-bold [&.active]:text-brand-secondary text-brand-secondary-light drop-shadow-md"
         >
           Home
         </Link>
@@ -15,12 +15,12 @@ const rootRouteComponent = () => {
           to="/pokemon/$name"
           search={{ tab: "info" }}
           params={{ name: "bulbasaur" }}
-          className="[&.active]:font-bold [&.active]:text-brand-secondary-dark text-brand-secondary"
+          className="[&.active]:font-bold [&.active]:text-brand-secondary text-brand-secondary-light drop-shadow-md"
         >
           Bulbasaur
         </Link>
       </div>
-      <main className="flex justify-center min-h-screen text-brand-secondary-lighest tracking-wider">
+      <main className="flex justify-center min-h-screen text-brand-secondary-lightest tracking-wider">
         <Outlet />
         <ReactQueryDevtools buttonPosition="top-right" />
         <TanStackRouterDevtools position="bottom-right" />

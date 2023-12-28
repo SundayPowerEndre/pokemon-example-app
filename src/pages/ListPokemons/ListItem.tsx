@@ -18,7 +18,7 @@ const ListItem = ({ item }: Props) => {
           search: { tab: "info" },
         })
       }
-      className="p-4 text-lg border border-brand-secondary  bg-transparent rounded-3xl text-center"
+      className="p-4 text-lg border border-brand-secondary  bg-transparent rounded-md drop-shadow-lg text-center"
     >
       {captalisedName}
     </button>

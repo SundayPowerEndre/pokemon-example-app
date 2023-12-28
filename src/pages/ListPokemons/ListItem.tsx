@@ -1,3 +1,4 @@
+import ClickableCard from "@/components/ClickableCard";
 import { capitaliseWord } from "@/lib/utils";
 import { pokemonRoute } from "@/routing/router";
 import { useNavigate } from "@tanstack/react-router";
@@ -10,7 +11,7 @@ const ListItem = ({ item }: Props) => {
   const captalisedName = capitaliseWord(item.name);
   const navigate = useNavigate({ from: "/listPokemons" });
   return (
-    <button
+    <ClickableCard
       onClick={() =>
         navigate({
           to: pokemonRoute.to,
@@ -18,10 +19,9 @@ const ListItem = ({ item }: Props) => {
           search: { tab: "info" },
         })
       }
-      className="rounded-md border border-brand-secondary bg-transparent  p-4 text-center text-lg drop-shadow-lg"
     >
       {captalisedName}
-    </button>
+    </ClickableCard>
   );
 };
 export default ListItem;

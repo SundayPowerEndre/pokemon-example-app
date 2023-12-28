@@ -117,7 +117,7 @@
     background: radial-gradient(
       farthest-corner at center,
       transparent,
-      rgba(0, 0, 0, 0.05) 70%
+      rgba(0, 0, 0, 0.075) 60%
     );
     pointer-events: none;
   }

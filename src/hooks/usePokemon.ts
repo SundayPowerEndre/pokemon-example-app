@@ -3,9 +3,9 @@ import { infiniteQueryOptions, queryOptions } from "@tanstack/react-query";
 
 export const getAllPokemonOptions = infiniteQueryOptions({
   queryKey: ["list-pokemon"],
-  initialPageParam: { offset: 0, limit: 12 * 4 },
+  initialPageParam: { offset: 0, limit: 12 * 5 },
   queryFn: async ({
-    pageParam: { offset, limit } = { offset: 0, limit: 12 * 4 },
+    pageParam: { offset, limit } = { offset: 0, limit: 12 * 5 },
   }) => {
     // I do not understand the underlying typing system well enough to prioritise fixing this...
     const response = await apiClient.pokemon.listPokemons(offset, limit);

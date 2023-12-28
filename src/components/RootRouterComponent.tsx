@@ -1,6 +1,5 @@
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Link, Outlet } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { HomeIcon } from "lucide-react";
 const rootRouteComponent = () => {
   return (
     <>
@@ -9,21 +8,11 @@ const rootRouteComponent = () => {
           to="/listPokemons"
           className="text-brand-secondary-light drop-shadow-md [&.active]:font-bold [&.active]:text-brand-secondary"
         >
-          Home
-        </Link>
-        <Link
-          to="/pokemon/$name"
-          search={{ tab: "info" }}
-          params={{ name: "bulbasaur" }}
-          className="text-brand-secondary-light drop-shadow-md [&.active]:font-bold [&.active]:text-brand-secondary"
-        >
-          Bulbasaur
+          <HomeIcon className=" sm:h-8 sm:w-8 lg:h-12 lg:w-12" />
         </Link>
       </div>
       <main className="flex min-h-screen justify-center tracking-wider text-brand-secondary-lightest">
         <Outlet />
-        <ReactQueryDevtools buttonPosition="top-right" />
-        <TanStackRouterDevtools position="bottom-right" />
       </main>
     </>
   );

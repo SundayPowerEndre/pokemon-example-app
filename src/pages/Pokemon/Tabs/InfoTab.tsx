@@ -39,7 +39,7 @@ const Info = ({
             <img
               src={front_default}
               alt={`front-${name}`}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
             />
           )}
         </div>

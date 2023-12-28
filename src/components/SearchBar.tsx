@@ -55,7 +55,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           placeholder={placeholderText}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          className="bg-grey-lightest w-full rounded-full border border-brand-secondary  bg-transparent py-2 pl-10  pr-3 hover:border-brand-secondary-light focus:outline-none"
+          className="bg-grey-lightest w-full rounded-full border-4 border-brand-secondary  bg-transparent py-2 pl-10  pr-3 hover:border-brand-secondary-light focus:outline-none"
         />
 
         {value && (

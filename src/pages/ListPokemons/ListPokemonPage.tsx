@@ -27,9 +27,9 @@ export const ListPokemon = () => {
   };
 
   return (
-    <div className="flex min-h-[90vh] flex-col justify-between">
+    <div className="flex min-h-[calc(100dvh)] flex-col justify-end  sm:min-h-[calc(100vh)] sm:justify-between">
       <article
-        className="grid max-h-[calc(100dvh-250px)] min-h-6 grid-cols-2 gap-4 self-start overflow-auto md:grid-cols-3 lg:max-h-[calc(100dvh-184px)] lg:grid-cols-4"
+        className="mb-4 grid max-h-[calc(100dvh-184px)] min-h-6 grid-cols-2 gap-4 overflow-auto sm:mb-0 md:grid-cols-3 lg:max-h-[calc(100dvh-184px)] lg:grid-cols-4"
         onScroll={handleScroll}
       >
         {filteredPokemon?.map((item) => (
@@ -37,7 +37,7 @@ export const ListPokemon = () => {
         ))}
         {isFetchingNextPage && <div className="my-6">Loading more...</div>}
       </article>
-      <div className="sticky bottom-11">
+      <div className="sticky pb-[5dvh] sm:pb-11">
         <SearchBar
           fullWidth
           value={searchBarText}

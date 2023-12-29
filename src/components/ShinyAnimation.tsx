@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import spriteSheet from "../../public/transparent-shiny-animation.png"; // Path to your sprite sheet
+import spriteSheet from "/transparent-shiny-animation.png"; // Path to your sprite sheet
 import { cn } from "@/lib/utils";
 
 interface Props {

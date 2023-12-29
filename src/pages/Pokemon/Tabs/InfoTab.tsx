@@ -26,7 +26,7 @@ const Info = ({
   return (
     <div
       className={cn(
-        "flex aspect-pokemon-card w-full flex-col items-center space-y-2 rounded-xl border-4  border-brand-yellow p-2  text-black text-opacity-80 shadow sm:space-y-4 sm:p-4 md:p-6 ",
+        "flex aspect-pokemon-card w-full flex-col items-center space-y-2 rounded-xl border-4  border-brand-yellow p-2  text-black text-opacity-80 shadow sm:space-y-4 sm:p-4 md:p-6",
         pokemonTypeColors[typeColor],
       )}
     >
@@ -34,7 +34,7 @@ const Info = ({
         <h2 className="mb-2 text-sm font-bold sm:text-sm md:text-lg lg:text-xl">
           {capitaliseWord(name)} (#{id})
         </h2>
-        <div className="aspect-pokemon-card-image w-32 rounded-md border-4 border-brand-yellow bg-brand-yellow-lightest  sm:w-48 md:w-64 lg:w-80 ">
+        <div className="aspect-pokemon-card-image w-32 rounded-md border-4 border-brand-yellow bg-brand-yellow-lightest  sm:w-48 md:w-64 lg:w-80">
           {front_default && (
             <img
               src={front_default}
@@ -47,9 +47,10 @@ const Info = ({
       <div className="flex w-32 flex-1 items-center text-xs sm:w-48 sm:text-sm md:w-64 md:text-lg lg:w-80 lg:text-xl">
         <div>
           <p>
-            <strong className=" whitespace-break-spaces">
+            <strong className="whitespace-break-spaces">
               Base Experience:
-            </strong>{" "}
+            </strong>
+            {""}
             {base_experience}
           </p>
           <p>
@@ -65,7 +66,7 @@ const Info = ({
               {abilities.map(({ ability: { name } }, index) => (
                 <span key={index}>
                   {capitaliseWord(name)}
-                  {index < abilities.length - 1 ? ", " : ""}
+                  {index < abilities.length - 1 ? "," : ""}
                 </span>
               ))}
             </span>
@@ -79,7 +80,7 @@ const Info = ({
                   <span key={index}>
                     {capitaliseWord(name)}
                     {`(${slot})`}
-                    {index < types.length - 1 ? ", " : ""}
+                    {index < types.length - 1 ? "," : ""}
                   </span>
                 );
               })}

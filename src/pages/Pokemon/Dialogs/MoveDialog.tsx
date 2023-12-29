@@ -47,7 +47,7 @@ const MoveDialog = () => {
           </p>
           {damage_class && (
             <p>
-              <strong>Class:</strong> {capitaliseWord(damage_class.name)}{" "}
+              <strong>Class:</strong> {capitaliseWord(damage_class.name)}
             </p>
           )}
           {power && (

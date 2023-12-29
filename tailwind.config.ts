@@ -13,6 +13,7 @@ export const theme = {
     square: "1 / 1",
     video: "16 / 9",
     "pokemon-card": "2.5 / 3.5",
+    "reverse-pokemon-card": "3.5 / 2.5",
     "pokemon-card-image": "10 / 7",
     1: "1",
     2: "2",

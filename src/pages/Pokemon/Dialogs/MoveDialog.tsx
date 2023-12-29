@@ -32,7 +32,12 @@ const MoveDialog = () => {
       open
       onOpenChange={async (open) => await onChangeDialog(open, name)}
     >
-      <DialogContent className={cn(pokemonTypeColors[typeColor])}>
+      <DialogContent
+        className={cn(
+          "reverse-aspect-pokemon-card  w-[70%] border-none sm:w-[60%] md:w-[50%]   lg:w-[30%]",
+          pokemonTypeColors[typeColor],
+        )}
+      >
         <DialogHeader>
           <DialogTitle>{capitaliseWord(moveName)}</DialogTitle>
         </DialogHeader>
@@ -45,12 +50,16 @@ const MoveDialog = () => {
               <strong>Class:</strong> {capitaliseWord(damage_class.name)}{" "}
             </p>
           )}
-          <p>
-            <strong>Power:</strong> {power}
-          </p>
-          <p>
-            <strong>Accuracy:</strong> {accuracy}
-          </p>
+          {power && (
+            <p>
+              <strong>Power:</strong> {power}
+            </p>
+          )}
+          {accuracy && (
+            <p>
+              <strong>Accuracy:</strong> {accuracy}
+            </p>
+          )}
           <p>
             <strong>PP:</strong> {pp}
           </p>

@@ -5,8 +5,8 @@ import jaroWinkler from "talisman/metrics/jaro-winkler";
 import Fuse from "fuse.js";
 import { TYPES as POKEMON_TYPES } from "pokenode-ts";
 export type PokemonTypes = keyof typeof POKEMON_TYPES;
-const FUZZY_THRESHOLD = 0.5 as const;
-const PHONETIC_THRESHOLD = 0.4 as const;
+const FUZZY_THRESHOLD = 0.6 as const;
+const PHONETIC_THRESHOLD = 0.2 as const;
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -38,7 +38,7 @@ export function mightBePokemon(pokemon: string, search: string) {
   return isFuzzyMatch || isPhoneticMatch;
 }
 export const pokemonTypeColors = {
-  NORMAL: "bg-gray-400",
+  NORMAL: "bg-zinc-200",
   FIGHTING: "bg-pastel-earth",
   FLYING: "bg-sky-200",
   POISON: "bg-purple-300",
@@ -46,7 +46,7 @@ export const pokemonTypeColors = {
   ROCK: "bg-pastel-rock",
   BUG: "bg-brand-green",
   GHOST: "bg-brand-lavender",
-  STEEL: "bg-zinc-200",
+  STEEL: "bg-zinc-300",
   FIRE: "bg-red-300",
   WATER: "bg-indigo-200",
   GRASS: "bg-brand-green-dark",

@@ -26,12 +26,12 @@ const Info = ({
   return (
     <div
       className={cn(
-        "flex aspect-pokemon-card w-full flex-col  items-center space-y-2 rounded-xl border-4  border-brand-yellow p-2  text-black text-opacity-80 shadow sm:space-y-4 sm:p-4 md:p-6 ",
+        "flex aspect-pokemon-card w-full flex-col items-center space-y-2 rounded-xl border-4  border-brand-yellow p-2  text-black text-opacity-80 shadow sm:space-y-4 sm:p-4 md:p-6 ",
         pokemonTypeColors[typeColor],
       )}
     >
       <div className="grid flex-1 grid-cols-1 place-items-center items-center justify-center text-center">
-        <h2 className="sm:text-md md:text-kg text-sm font-bold lg:text-xl">
+        <h2 className="mb-2 text-sm font-bold sm:text-sm md:text-lg lg:text-xl">
           {capitaliseWord(name)} (#{id})
         </h2>
         <div className="aspect-pokemon-card-image w-32 rounded-md border-4 border-brand-yellow bg-brand-yellow-lightest  sm:w-48 md:w-64 lg:w-80 ">
@@ -44,10 +44,13 @@ const Info = ({
           )}
         </div>
       </div>
-      <div className="flex w-32 flex-1 items-center text-sm sm:w-48 md:w-64 lg:w-80 ">
+      <div className="flex w-32 flex-1 items-center text-xs sm:w-48 sm:text-sm md:w-64 md:text-lg lg:w-80 lg:text-xl">
         <div>
           <p>
-            <strong>Base Experience:</strong> {base_experience}
+            <strong className=" whitespace-break-spaces">
+              Base Experience:
+            </strong>{" "}
+            {base_experience}
           </p>
           <p>
             <strong>Height:</strong> {height / 10} m

@@ -29,7 +29,7 @@ export const ListPokemon = () => {
   return (
     <div className="flex min-h-[calc(100dvh)] flex-col justify-end  sm:min-h-[calc(100vh)] sm:justify-between">
       <article
-        className="mb-4 grid max-h-[calc(100dvh-184px)] min-h-6 grid-cols-2 gap-4 overflow-auto sm:mb-0 md:grid-cols-3 lg:max-h-[calc(100dvh-184px)] lg:grid-cols-4"
+        className="mb-4 grid max-h-[calc(80dvh)] min-h-6 grid-cols-2 gap-4 overflow-auto sm:mb-0 sm:max-h-[calc(100dvh-184)] md:grid-cols-3 lg:max-h-[calc(100dvh-184px)] lg:grid-cols-4"
         onScroll={handleScroll}
       >
         {filteredPokemon?.map((item) => (

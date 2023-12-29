@@ -34,7 +34,7 @@ const Info = ({
     <div
       onClick={toggleShiny}
       className={cn(
-        "flex aspect-pokemon-card w-full cursor-pointer flex-col items-center space-y-2  rounded-xl border-4  border-brand-yellow p-2 text-black text-opacity-80 shadow-md  transition-all duration-300 hover:scale-105 hover:shadow-lg sm:space-y-4 sm:p-4 md:p-6",
+        "flex aspect-pokemon-card w-full cursor-pointer flex-col items-center space-y-2  rounded-xl border-4  border-brand-yellow p-1 text-black text-opacity-80 shadow-md  transition-all duration-300 hover:scale-105 hover:shadow-lg sm:space-y-4 sm:p-4 md:p-6",
         pokemonTypeColors[typeColor],
       )}
     >
@@ -64,7 +64,7 @@ const Info = ({
           )}
         </div>
       </div>
-      <div className="flex w-32 flex-1 items-center text-xs sm:w-48 sm:text-sm md:w-64 md:text-lg lg:w-80 lg:text-xl">
+      <div className="flex w-full flex-1 items-center p-2 text-xs sm:p-4 sm:text-sm md:p-6 md:text-lg lg:text-xl">
         <div>
           <p>
             <strong className="whitespace-break-spaces">

@@ -1,3 +1,4 @@
+import ShinyAnimation from "@/components/ShinyAnimation";
 import {
   capitaliseWord,
   cn,
@@ -5,6 +6,7 @@ import {
   pokemonTypeColors,
 } from "@/lib/utils";
 import { type Pokemon } from "pokenode-ts";
+import { useState } from "react";
 
 interface Props {
   data: Pokemon;
@@ -18,15 +20,21 @@ const Info = ({
     weight,
     abilities,
     types,
-    sprites: { front_default },
+    sprites: { front_default, front_shiny },
   },
 }: Props) => {
   const typeColor = getColorFromType(types?.at(0)?.type?.name);
+  const [isShiny, setIsShiny] = useState(false);
+
+  const toggleShiny = () => {
+    setIsShiny(!isShiny);
+  };
 
   return (
     <div
+      onClick={toggleShiny}
       className={cn(
-        "flex aspect-pokemon-card w-full flex-col items-center space-y-2 rounded-xl border-4  border-brand-yellow p-2  text-black text-opacity-80 shadow sm:space-y-4 sm:p-4 md:p-6",
+        "flex aspect-pokemon-card w-full cursor-pointer flex-col items-center space-y-2  rounded-xl border-4  border-brand-yellow p-2 text-black text-opacity-80 shadow-md  transition-all duration-300 hover:scale-105 hover:shadow-lg sm:space-y-4 sm:p-4 md:p-6",
         pokemonTypeColors[typeColor],
       )}
     >
@@ -35,7 +43,19 @@ const Info = ({
           {capitaliseWord(name)} (#{id})
         </h2>
         <div className="aspect-pokemon-card-image w-32 rounded-md border-4 border-brand-yellow bg-brand-yellow-lightest  sm:w-48 md:w-64 lg:w-80">
-          {front_default && (
+          {front_default && front_shiny && (
+            <>
+              <img
+                src={isShiny ? front_shiny : front_default}
+                alt={`front-${name}`}
+                className="h-full w-full object-contain"
+              />
+              {isShiny && (
+                <ShinyAnimation className="absolute bottom-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform" />
+              )}
+            </>
+          )}
+          {front_default && !front_shiny && (
             <img
               src={front_default}
               alt={`front-${name}`}

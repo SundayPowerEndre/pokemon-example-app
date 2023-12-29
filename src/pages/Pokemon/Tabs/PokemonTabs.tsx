@@ -22,7 +22,7 @@ export const PokemonTabs = ({ name, tab: selectedTab }: Props) => {
   const { changePokemonTab } = internalNavigation();
   return (
     <Tabs value={selectedTab} className="w-fit">
-      <TabsList className="w-full gap-3 bg-transparent text-brand-secondary">
+      <TabsList className="mb-12 w-full gap-3 bg-transparent text-brand-secondary ">
         {pokemonTabOptions.map((tab) => {
           return (
             <div className="mb-6" key={tab}>

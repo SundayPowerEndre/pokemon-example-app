@@ -16,7 +16,6 @@ export function capitaliseWord(word: string) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-// Function to check if the word matches using fuzzy and phonetic algorithms
 export function mightBePokemon(pokemon: string, search: string) {
   if (pokemon.toLowerCase().startsWith(search.toLowerCase())) {
     return true;

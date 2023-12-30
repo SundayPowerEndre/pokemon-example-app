@@ -10,6 +10,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    "allowJs": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -29,7 +30,8 @@
     "declarations.d.ts",
     "prettier.config.js",
     "vite.config.ts",
-    "tailwind.config.ts"
+    "tailwind.config.ts",
+    "postcss.config.js"
   ],
   "exclued": ["./generated-api"],
   "references": [{ "path": "./tsconfig.node.json" }]

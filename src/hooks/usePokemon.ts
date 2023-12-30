@@ -7,16 +7,18 @@ export const getAllPokemonOptions = infiniteQueryOptions({
   queryFn: async ({
     pageParam: { offset, limit } = { offset: 0, limit: 12 * 5 },
   }) => {
-    // I do not understand the underlying typing system well enough to prioritise fixing this...
     const response = await apiClient.pokemon.listPokemons(offset, limit);
-    const { results: _, ...rest } = response;
+    const { results, ...rest } = response;
+
     const wrangledData = {
-      results: response.results,
+      results,
       pages: [response],
       pageParams: [{ offset, limit }],
       ...rest,
     };
+
     const output: Omit<typeof wrangledData, "pages"> = wrangledData;
+
     return output;
   },
   getNextPageParam: (lastPage) => {

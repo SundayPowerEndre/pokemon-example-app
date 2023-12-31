@@ -1,5 +1,8 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import { HomeIcon } from "lucide-react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { env } from "@/env";
 const rootRouteComponent = () => {
   return (
     <>
@@ -13,6 +16,15 @@ const rootRouteComponent = () => {
       </div>
       <main className="flex flex-1 justify-center tracking-wider text-brand-secondary-lightest">
         <Outlet />
+        {env.VITE_ENV === "development" && (
+          <>
+            <ReactQueryDevtools
+              buttonPosition="top-right"
+              initialIsOpen={false}
+            />
+            <TanStackRouterDevtools position="bottom-right" />
+          </>
+        )}
       </main>
     </>
   );

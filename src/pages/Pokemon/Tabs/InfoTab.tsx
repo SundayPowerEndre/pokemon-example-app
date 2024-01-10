@@ -44,16 +44,14 @@ const Info = ({
         </h2>
         <div className="aspect-pokemon-card-image w-32 rounded-md border-4 border-brand-yellow bg-brand-yellow-lightest  sm:w-48 md:w-64 lg:w-80">
           {front_default && front_shiny && (
-            <>
+            <div className="relative flex h-full w-full items-center justify-center">
               <img
                 src={isShiny ? front_shiny : front_default}
                 alt={`front-${name}`}
-                className="h-full w-full object-contain"
+                className="absolute h-full w-full object-contain"
               />
-              {isShiny && (
-                <ShinyAnimation className="absolute bottom-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform" />
-              )}
-            </>
+              {isShiny && <ShinyAnimation className="absolute" />}
+            </div>
           )}
           {front_default && !front_shiny && (
             <img

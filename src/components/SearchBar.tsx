@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, type ChangeEvent } from "react";
 import { SearchIcon, XIcon } from "lucide-react";
 import clsx from "clsx";
 
@@ -19,6 +19,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const updateText = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const cleanedValue = value.replace(/[^a-zA-Z0-9]/g, "");
+    setValue(cleanedValue);
+  };
 
   const handleClear = () => {
     setValue("");
@@ -51,7 +57,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         <input
           ref={inputRef}
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={updateText}
           placeholder={placeholderText}
           onFocus={handleFocus}
           onBlur={handleBlur}

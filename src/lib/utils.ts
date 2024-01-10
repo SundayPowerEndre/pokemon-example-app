@@ -4,9 +4,11 @@ import doubleMetaphone from "talisman/phonetics/double-metaphone";
 import jaroWinkler from "talisman/metrics/jaro-winkler";
 import Fuse from "fuse.js";
 import { TYPES as POKEMON_TYPES } from "pokenode-ts";
+import allPokemon from "../assets/all_pokemon.json";
+
 export type PokemonTypes = keyof typeof POKEMON_TYPES;
-const FUZZY_THRESHOLD = 0.6 as const;
-const PHONETIC_THRESHOLD = 0.2 as const;
+const FUZZY_THRESHOLD = 0.8 as const;
+const PHONETIC_THRESHOLD = 0.4 as const;
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -18,6 +20,9 @@ export function capitaliseWord(word: string) {
 
 export function mightBePokemon(pokemon: string, search: string) {
   if (pokemon.toLowerCase().startsWith(search.toLowerCase())) {
+    return true;
+  }
+  if (pokemon.toLowerCase().includes(search.toLowerCase())) {
     return true;
   }
 
@@ -68,4 +73,24 @@ export const getColorFromType = (typeString: string | undefined) => {
       : POKEMON_TYPES.NORMAL.toString().toUpperCase()
   ) as PokemonTypes;
   return typeColor;
+};
+
+export const fetchPokemon = async ({
+  queryKey,
+  pageParam = 0,
+}: {
+  queryKey: string[];
+  pageParam?: number;
+}) => {
+  const delay = pageParam === 0 ? 50 : Math.random() * 700 + 100; // Set delay to 50 ms if page is 0
+  await new Promise((resolve) => setTimeout(resolve, delay)); // Wait for the delay
+  const amount = 12 * 5;
+  const [_key, searchText] = queryKey;
+  const start = pageParam * amount;
+  const end = start + amount;
+  const results = allPokemon
+    .filter((p) => mightBePokemon(p.name, searchText))
+    .slice(start, end);
+  const nextPage = results.length === amount ? pageParam + 1 : null;
+  return Promise.resolve({ results, nextPage });
 };

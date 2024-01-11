@@ -11,7 +11,7 @@ const rootRouteComponent = () => {
           to="/listPokemons"
           className="text-brand-secondary-light drop-shadow-md [&.active]:font-bold [&.active]:text-brand-secondary"
         >
-          <HomeIcon className="sm:h-8 sm:w-8 lg:h-12 lg:w-12" />
+          <HomeIcon className=" h-10 w-10 sm:h-12 sm:w-12" />
         </Link>
       </div>
       <main className="flex flex-1 justify-center tracking-wider text-brand-secondary-lightest">

@@ -84,7 +84,7 @@ const Info = ({
               {abilities.map(({ ability: { name } }, index) => (
                 <span key={index}>
                   {capitaliseWord(name)}
-                  {index < abilities.length - 1 ? "," : ""}
+                  {index < abilities.length - 1 ? ", " : ""}
                 </span>
               ))}
             </span>
@@ -98,7 +98,7 @@ const Info = ({
                   <span key={index}>
                     {capitaliseWord(name)}
                     {`(${slot})`}
-                    {index < types.length - 1 ? "," : ""}
+                    {index < types.length - 1 ? ", " : ""}
                   </span>
                 );
               })}

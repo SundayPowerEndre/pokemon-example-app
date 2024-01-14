@@ -27,6 +27,7 @@
     "pokenode-ts": "^1.20.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.2",
     "talisman": "^1.1.4",
     "zod": "^3.22.4"
   },

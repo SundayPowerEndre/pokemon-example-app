@@ -60,7 +60,7 @@ export const ListPokemon = () => {
       <article
         className={clsx(
           "mb-4 grid max-h-[calc(80dvh)] min-h-[calc(80dvh)] grid-flow-row auto-rows-max grid-cols-2 gap-4 overflow-y-scroll sm:mb-0 sm:max-h-[calc(100vh-184px)] sm:content-stretch md:grid-cols-3 lg:grid-cols-4",
-          (searchBarText.length > 2 || local_pokemon?.length < 10) &&
+          (local_pokemon?.length <= 12) &&
             "content-end",
         )}
         onScroll={handleScroll}

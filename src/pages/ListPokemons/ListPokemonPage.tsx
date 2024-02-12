@@ -56,10 +56,10 @@ export const ListPokemon = () => {
     }) ?? [];
 
   return (
-    <section className="flex min-h-[calc(90dvh)] w-5/6 flex-col justify-end pt-6 sm:min-h-[90vh] sm:w-3/4 sm:justify-between sm:pt-0 md:w-4/6 lg:w-3/5 ">
+    <section className="flex min-h-[calc(90svh)] w-5/6 flex-col justify-end pt-6 sm:min-h-[90vh] sm:w-3/4 sm:justify-between sm:pt-0 md:w-4/6 lg:w-3/5 ">
       <article
         className={clsx(
-          "mb-4 grid max-h-[calc(80dvh)] min-h-[calc(80dvh)] grid-flow-row auto-rows-max grid-cols-2 gap-4 overflow-y-scroll sm:mb-0 sm:max-h-[calc(100vh-184px)] sm:content-stretch md:grid-cols-3 lg:grid-cols-4",
+          "mb-4 grid max-h-[calc(80svh)] min-h-[calc(80dvh)] grid-flow-row auto-rows-max grid-cols-2 gap-4 overflow-y-scroll sm:mb-0 sm:max-h-[calc(100vh-184px)] sm:content-stretch md:grid-cols-3 lg:grid-cols-4",
           (local_pokemon?.length <= 12) &&
             "content-end",
         )}
@@ -75,7 +75,7 @@ export const ListPokemon = () => {
           <div className="my-6">Loading more...</div>
         )}
       </article>
-      <div className="sticky pb-[5dvh] sm:pb-11">
+      <div className="sticky pb-[5svh] sm:pb-11">
         <SearchBar
           fullWidth
           value={searchBarText}

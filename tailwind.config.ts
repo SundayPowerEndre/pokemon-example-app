@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme';
 export const darkMode = ["class"];
 export const content = [
   "./pages/**/*.{ts,tsx}",
@@ -40,6 +41,9 @@ export const theme = {
     },
   },
   extend: {
+    fontFamily: {
+      "sans": [defaultTheme.fontFamily.mono, defaultTheme.fontFamily.sans]
+    },
     colors: {
       "pastel-earth": "#D3C1A5",
       "pastel-rock": "#AFAF9A",

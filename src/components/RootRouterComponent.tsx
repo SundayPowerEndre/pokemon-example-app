@@ -14,7 +14,7 @@ const rootRouteComponent = () => {
           <HomeIcon className=" h-10 w-10 sm:h-12 sm:w-12" />
         </Link>
       </div>
-      <main className="flex flex-1 justify-center tracking-wider text-brand-secondary-lightest">
+      <main className="flex flex-1 justify-center text-brand-secondary-lightest">
         <Outlet />
         {env.VITE_ENV === "development" && (
           <>
